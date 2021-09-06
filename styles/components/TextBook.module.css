@@ -1,0 +1,83 @@
+.TextBook{
+  height:auto;
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+
+.mainbox{
+    position: relative;
+    top: 140px;
+    height: auto;
+    width: 100%;
+    
+    display: flex; 
+    justify-content: center
+}
+
+.leftbar{
+  /* position: relative; */
+  width: 250px;
+  /* border: solid 1px #ccc; */
+}
+
+
+.rightbar{
+  height: auto;
+  display: flex;
+  justify-content: center;
+  /* border: 1px solid red; */
+  width: 920px;
+  border-left: 1px  solid #ccc;
+}
+
+.box{
+  width: 850px;
+}
+
+.heading{
+  height: 44px;
+  width: 850px;
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.heading h3{
+  position: relative;
+  top: -47%;
+  color: '#404040' ;
+  font-size: 20px ;
+  font-weight: 700; 
+  
+  display: block;
+  /* border: 1px solid red */
+}
+
+
+.heading span{
+  position: relative;
+  top: -80%;
+  display: block;
+  height: 10px;
+  font:  normal 12px Tahoma,Geneva,sans-serif;
+  /* border: 1px solid red */
+}
+
+.productbox{
+  margin-top: 10px;
+}
+
+
+
+
+.footer{
+  position: relative;
+  top: 140px;
+  width : 100%;
+
+}

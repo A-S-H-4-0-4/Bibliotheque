@@ -1,0 +1,3 @@
+// file for containing category data
+
+export const categories = ['Architecture','Arts & Photography','Biographies & Memoirs','Body, Mind & Spirit','Business & Economics','Children & Teens','Computer & Internet','Architecture','Cookery, Food & Wine','Architecture','Arts & Photography','Biographies & Memoirs','Body, Mind & Spirit','Business & Economics','Children & Teens','Computer & Internet','Architecture','Cookery, Food & Wine','Architecture','Arts & Photography','Biographies & Memoirs','Body, Mind & Spirit','Business & Economics','Children & Teens','Computer & Internet','Body, Mind & Spirit','Biographies & Memoirs'];

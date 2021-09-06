@@ -1,0 +1,214 @@
+.box{
+  height: 360px;
+  width: 100%;
+  background-color:  #1b1b1b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.upperbox{
+  height: 40%;
+  width: 60%;
+  /* border: 2px solid red; */
+  /* position: relative;
+  top: 10px; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  
+}
+.footer_lyks{
+  /* border: 2px solid red; */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 90%;
+  color: #b1b1b1;
+  font-size: small;
+}
+
+.footer_lyks h3{
+  position: relative;
+  right: 20%;
+}
+
+.footer_lyks ul {
+  list-style-type: none;
+}
+
+.company{
+  position: relative;
+  right: 40% !important;
+}
+
+.policies{
+  position: relative;
+  right: 20% !important;
+}
+
+.help{
+  position: relative;
+  right: 30% !important;
+}
+
+.misc{
+  position: relative;
+  right: 13% !important;
+  top: -5%;
+}
+
+.Mischeading{
+  position: relative;
+  top: -5% !important;
+}
+.footer_lyks h3{
+  height: 10%;
+}
+
+
+.FollowBox{
+  position: relative;
+  height: 90px;
+  /* width: 100px; */
+  display: flex;
+  /* border: 1px solid red !important; */
+  top: -20%;
+  /* right: 10%; */
+  flex-direction: column;
+  right: 3%;
+}
+
+.FollowBox h3{
+  display: block;
+  height: 30%;
+  width: 100%;
+  /* border: 1px solid rgb(0, 0, 0) !important; */
+}
+.icons{
+  position: relative;
+  display: flex !important;
+  height: 40%;
+  /* border: 1px solid pink !important; */
+  width : 175px;
+  justify-content: space-between !important;
+  align-items: center;
+  top: -10%;
+  right: 3%;
+  cursor: pointer;
+}
+
+.icons img{
+  height: 60%;
+}
+.follow:hover{
+  color: rgb(7, 7, 102) !important; 
+} 
+
+/* middlebox */
+.middlebox{
+  height: 13%;
+  width: 60%;
+  /* border: 2px solid red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.email:hover{
+  color: rgb(7, 7, 102) !important;
+}
+
+.addressdiv{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:90%;
+  width: 100%;
+  border-top: solid 1px #464646;
+  border-bottom: solid 1px #464646;
+  color: #b1b1b1;
+  font-size: 12px;
+}
+
+
+.lowerbox{
+  height: 50%;
+  width: 60%;
+  /* border: 2px solid red; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rightbox{
+  /* height: 90%; */
+  width : 600px;
+  /* border: 2px solid rgb(255, 255, 255); */
+  display: flex;
+  align-items: center;
+  position: relative;
+  top: -10%;
+  flex-direction: row;
+
+}
+.payment{
+  height: 60% !important;
+  position: relative;
+  left: 1%;
+  top: -30% !important;
+  /* border: 2px solid rgb(255, 0, 0); */
+  display: flex;
+  width: 70%;
+ flex-direction : column;
+  
+}
+
+.imgs{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.text{
+  /* border: 2px solid rgb(255, 255, 255); */
+  height: 50px !important;
+  width : 100%;
+  color: #b1b1b1;
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: flex-end;
+}
+
+
+
+.leftbox{
+  height: 50%;
+  width : 400px;
+  /* border: 2px solid rgb(255, 255, 255); */
+  position: relative;
+  top: -10%;
+}
+
+
+
+
+
+.leftbox p{
+  position: relative;
+  color: #b1b1b1;
+  left: 21%;
+  font-size: small;
+}
+
+.copyright{
+  position: relative;
+  color: #b1b1b1;
+  left: 52%;
+  font-size: small;
+}

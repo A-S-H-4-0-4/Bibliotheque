@@ -1,0 +1,27 @@
+.box{
+  height: 211px;
+  width: 157px;
+  /* border: 1px solid #000; */
+  display:  flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.box img {
+  height: 156px;
+  width: 157px;
+  border-radius: 50%;
+  object-fit:  cover;
+}
+
+.box p{
+  height: 50px;
+  font-weight: bold;
+  color: rgb(41, 40, 40);
+}
+
+.box p:hover{
+  color: rgb(245, 57, 57);
+}
