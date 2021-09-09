@@ -14,6 +14,7 @@
   right: 0px;
   /* border: 1px solid blue; */
   z-index: 10;
+  position: relative;
 }
 .upperHeader {
   height: 78px;
@@ -24,16 +25,30 @@
   background-color: #bc3232;
 }
 .logo {
-  position: relative;
-  left: 300px;
+  /* position: relative;
+  left: 300px; */
   height: 69px;
   /* width: 90px; */
 }
+
+.searchBox{
+  height:300px;
+  width:35%;
+  display: flex;
+  flex-direction: column;
+  justify-content:flex-start;
+  /* border:1px solid red; */
+  /* position:absolute; */
+  /* top:30px; */
+  z-index: 2;
+  margin-top:280px;
+}
+
 .search {
-  position: relative;
-  left: 250px;
+  /* position: relative; */
+  /* left: 250px; */
   height: 25px;
-  width: 25%;
+  width: 100%;
   background-color: white;
   display: flex;
   justify-content: space-between;
@@ -41,6 +56,7 @@
   border-radius: 6px;
   box-shadow: 1px 1px 1px 1px #ccc;
 }
+
 .search input {
   height: auto;
   width: auto;
@@ -54,10 +70,27 @@
 .search img {
   cursor: pointer;
 }
+.searchResult{
+height:auto;
+width: 100%;
+background-color: white;  
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+align-items: flex-start;
+padding:10px;
+font-size: 20px;
+color: rgb(29, 29, 29);
+margin-top: 20px;
+border-radius:10px;
+}
+.searchResult small{
+  margin-bottom:10px;
+}
 
 .login {
   position: relative;
-  left: 230px;
+  /* left: 250px; */
   height: 30px;
   /* background-color: #f5f5f5; */
   width: 130px;
@@ -66,6 +99,7 @@
   /* align-items: center; */
   border-radius: 5px;
   flex-direction: column;
+  /* border:1px solid red; */
 }
 .Login{
   position :absolute;

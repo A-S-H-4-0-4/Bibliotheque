@@ -5,7 +5,7 @@ import CBox from "../styles/components/CategoryBox.module.css";
 import { categories } from "../data/category";
 
 const list = (category,index) => {
-  return( <li> < a href="https://www.bookswagon.com/cookery-food-wine-books" key={index}> 
+  return( <li key={index}> < a href="https://www.bookswagon.com/cookery-food-wine-books" > 
   {category}
   </a>
   </li>)
