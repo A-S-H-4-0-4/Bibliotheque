@@ -1,5 +1,5 @@
 // it is an API file for calling get and post API
-// const BaseUrl = "https://openlibrary.org/search.json?q=%s&fields=text,availability&limit=1"
+const BaseUrl = "https://www.googleapis.com/books/v1/volumes?q="
 
 export const callAPI=async (searchQuery,params=null)=>{
 
@@ -39,7 +39,7 @@ export const callAPI=async (searchQuery,params=null)=>{
         }
         console.log(informationObject);
         
-        const response=  await fetch(`https://openlibrary.org/search.json?q=${searchQuery}&fields=text,availability&limit=1`,informationObject)
+        const response=  await fetch(BaseUrl+searchQuery,informationObject)
         const result = await response.json()
         return result
         

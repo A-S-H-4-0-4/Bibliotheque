@@ -43,9 +43,9 @@ const logo = "/logo/logo.png";
 
 export const Header = () => {
   const [currency, setCurrency] = React.useState("");
-  const [searchQuery,setSearchQuery] = React.useState("")
-  const [books,setBooks] = React.useState([])
- 
+  const [searchQuery, setSearchQuery] = React.useState("");
+  const [books, setBooks] = React.useState([]);
+
   const searchBooks = (searchQuery) => {
     // console.log("in after component mount");
     try {
@@ -54,9 +54,9 @@ export const Header = () => {
       if (response) {
         const onResolve = (resolvedData) => {
           console.log(resolvedData);
-          const { docs } = resolvedData;
-          const {text} = docs[0]
-          return setBooks(text.slice(1,9))
+          const { items } = resolvedData;
+
+          return setBooks(items.slice(0, 8));
         };
         const onReject = (rejectData) => {};
         response.then(onResolve, onReject);
@@ -74,12 +74,19 @@ export const Header = () => {
   };
 
   const changeSearch = (event) => {
-      const {target} = event
-      const {value} = target
-      setSearchQuery(value)
-      if (value.length>3) {
-        return searchBooks(value)
-      }
+    const { target } = event;
+    const { value } = target;
+    setSearchQuery(value);
+    if (value.length > 3) {
+      return searchBooks(value);
+    }
+  };
+  const showBookName = (book,index) =>{
+
+    const {volumeInfo} = book;
+    const {title} = volumeInfo
+
+    return <small key={index}>{title}</small>;
 
   }
   return (
@@ -88,13 +95,18 @@ export const Header = () => {
         <img src={logo} className={HS.logo} />
         <div className={HS.searchBox}>
           <div className={HS.search}>
-            <input placeholder="Search by Title, Author, Publisher or ISBN" value={searchQuery} onChange={changeSearch} />
+            <input
+              placeholder="Search by Title, Author, Publisher or ISBN"
+              value={searchQuery}
+              onChange={changeSearch}
+            />
             <img src={search} />
           </div>
-     {books.length > 0 &&  searchQuery.length>3 &&    <div className={HS.searchResult}>
-         
-         {books.map(book => {return <small>{book}</small>})}   
-          </div>}
+          {books.length > 0 && searchQuery.length > 3 && (
+            <div className={HS.searchResult}>
+              {books.map(showBookName)}
+            </div>
+          )}
         </div>
         <div className={HS.login}>
           <img src={login} />
