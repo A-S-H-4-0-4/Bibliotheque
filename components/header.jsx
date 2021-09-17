@@ -3,6 +3,9 @@
 // API
 import { callAPI } from "../api/API";
 
+// router 
+import { useRouter } from "next/router";
+
 // random data
 const currencies = [
   "inr",
@@ -34,7 +37,9 @@ const home = "/icons/home-img.png";
 // hooks
 import React from "react";
 
+
 import Link from "next/link";
+
 
 // styles
 import HS from "../styles/components/header.module.css";
@@ -42,10 +47,12 @@ import HS from "../styles/components/header.module.css";
 const logo = "/logo/logo.png";
 
 export const Header = () => {
+  
   const [currency, setCurrency] = React.useState("");
   const [searchQuery, setSearchQuery] = React.useState("");
   const [books, setBooks] = React.useState([]);
-
+  const router = useRouter()
+  
   const searchBooks = (searchQuery) => {
     // console.log("in after component mount");
     try {
@@ -58,13 +65,14 @@ export const Header = () => {
 
           return setBooks(items.slice(0, 8));
         };
-        const onReject = (rejectData) => {};
+        const onReject = (rejectData) => { };
         response.then(onResolve, onReject);
       } else {
         return alert("Sorry some server error");
       }
-    } catch (error) {}
+    } catch (error) { }
   };
+
   const currencyOptions = (value, index) => {
     return (
       <option key={index} value={value}>
@@ -81,14 +89,15 @@ export const Header = () => {
       return searchBooks(value);
     }
   };
-  const showBookName = (book,index) =>{
+  const showBookName = (book, index) => {
 
-    const {volumeInfo} = book;
-    const {title} = volumeInfo
+    const { volumeInfo,id } = book;
+    const { title } = volumeInfo
 
-    return <small key={index}>{title}</small>;
+    return <small key={index} onClick={()=>{router.push({pathname:"book_details",query:{id}})}}>{title}</small>;
 
   }
+
   return (
     <div className={HS.header}>
       <div className={HS.upperHeader}>
@@ -125,7 +134,7 @@ export const Header = () => {
               <img src={home} />
             </div>
           </Link>
-          <div>Books</div>
+            <div>Books</div>
           <Link href="newarrivals">
             <div>New Arrivals</div>
           </Link>

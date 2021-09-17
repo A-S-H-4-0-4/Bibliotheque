@@ -14,9 +14,9 @@ import { CategoryBox } from "../components/CategoryBox";
 
 
 
-const NewArrivals = () => {
+const newarrivals = () => {
   return (
-    <div className={NA.newarrivals}>\
+    <div className={NA.newarrivals}>
 
 
       {/* header */}
@@ -72,4 +72,4 @@ const NewArrivals = () => {
 }
 
 
-export default NewArrivals
+export default newarrivals
