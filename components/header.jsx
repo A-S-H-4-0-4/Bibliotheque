@@ -63,7 +63,7 @@ export const Header = () => {
           console.log(resolvedData);
           const { items } = resolvedData;
 
-          return setBooks(items.slice(0, 8));
+          return setBooks(items.slice(0, 4));
         };
         const onReject = (rejectData) => { };
         response.then(onResolve, onReject);
@@ -87,16 +87,29 @@ export const Header = () => {
     setSearchQuery(value);
     if (value.length > 3) {
       return searchBooks(value);
+
+      
     }
   };
   const showBookName = (book, index) => {
 
     const { volumeInfo,id } = book;
-    const { title } = volumeInfo
+    const { title} = volumeInfo
 
-    return <small key={index} onClick={()=>{router.push({pathname:"book_details",query:{id}})}}>{title}</small>;
+    return <small key={index} onClick={()=>{router.push({pathname:"book_details",query:{id}})}}>{title} </small>;
+
+    
+  }
+
+  const showAuthorName = (book, index) => {
+
+    const { volumeInfo,id } = book;
+    const {authors} = volumeInfo
+
+    return <small key={index} onClick={()=>{router.push({pathname:"book_details",query:{id}})}}>{authors} </small>;
 
   }
+
 
   return (
     <div className={HS.header}>
@@ -113,7 +126,17 @@ export const Header = () => {
           </div>
           {books.length > 0 && searchQuery.length > 3 && (
             <div className={HS.searchResult}>
+              <span>Book(S) </span>
+              <div className={HS.title}>
               {books.map(showBookName)}
+              </div>
+              <span>Author(S) </span>
+              <div className={HS.author}>
+              {books.map(showAuthorName)}
+              </div>
+
+              
+              
             </div>
           )}
         </div>
