@@ -1,11 +1,11 @@
 // it is an API file for calling get and post API
 const BaseUrl = "https://www.googleapis.com/books/v1/volumes?q="
 
-export const callAPI=async (searchQuery,params=null)=>{
+export const callAPI = async (searchQuery,params = null) => {
 
     console.log(params);
     try {
-        let informationObject={}
+        let informationObject = {}
         // simple logic
         if (params) {
          
