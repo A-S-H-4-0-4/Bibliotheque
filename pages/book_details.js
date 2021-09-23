@@ -7,7 +7,15 @@ import { useRouter } from "next/router";
 // API
 import { callAPI } from "../api/API";
 
+
 // styles
+import bd from "../styles/components/book_details.module.css";
+
+// gif
+const loadingGif = "/icons/loadingGif.gif"
+
+
+
 // import BD from "Book_details";
 
 const styles = {
@@ -49,7 +57,7 @@ const Book_details = () => {
       } catch (error) { }
   },[])
 
-  const renderedObject = loading ? <small>Loading...</small> : <BookDetails book={book} />;
+  const renderedObject = loading ? <div style={{display: "flex", alignItems: "center", justifyContent: "center"}} ><img src = {loadingGif}/></div> : <BookDetails book={book} /> ;
 
   return (
     <div style={styles}>
@@ -57,9 +65,11 @@ const Book_details = () => {
 
       {renderedObject}
 
+      
       <div>
-        <Footer />
+        <Footer/>
       </div>
+      
     </div>
   );
 };

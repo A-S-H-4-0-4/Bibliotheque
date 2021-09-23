@@ -25,7 +25,7 @@ import Link from "next/link";
 export const BookDetails = (props) => {
   const {book} = props 
   const {volumeInfo} = book
-  const {title,authors,publishedDate,imageLinks} = volumeInfo
+  const {description,title,authors,publishedDate,imageLinks} = volumeInfo
   const {thumbnail} = imageLinks
   return (
     <div className={BD.box}>
@@ -145,8 +145,12 @@ export const BookDetails = (props) => {
 
       </div>
 
-
-
+  
+  <div className = {BD.description}>
+    <div className = {BD.heading} ><span>About The Book </span> <small>Hide Detail</small></div>
+    <div className = {BD.about}>{description}</div>
+  </div>
+    
     </div>
   )
 }
