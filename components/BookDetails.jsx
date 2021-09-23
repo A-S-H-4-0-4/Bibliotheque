@@ -10,38 +10,43 @@ import { useRouter } from "next/router";
 import { setBookData } from "../api/bookStorage";
 
 // icons
-const starR = "icons/star-red.gif";
-const starG = "icons/star-gray.gif";
-const action_left = "icons/action-left.gif";
-const like = "icons/like.png";
-const safeshopiing = "icons/safe-shopping-ico.gif";
-const card = "icons/buyonline-ico.gif";
-const globe = "icons/globe.png";
-const dollar = "icons/dollar-symbol.png";
-
-
+const starR = "/icons/star-red.gif";
+const starG = "/icons/star-gray.gif";
+const action_left = "/icons/action-left.gif";
+const like = "/icons/like.png";
+const safeshopiing = "/icons/safe-shopping-ico.gif";
+const card = "/icons/buyonline-ico.gif";
+const globe = "/icons/globe.png";
+const dollar = "/icons/dollar-symbol.png";
 
 export const BookDetails = (props) => {
-  const router=useRouter()
+  const router = useRouter();
   const { book } = props;
-  const { volumeInfo,id } = book;
-  const { description="", title="", authors="", publishedDate="", imageLinks={} } = volumeInfo;
-  const { thumbnail="" } = imageLinks;
+  const { volumeInfo, id } = book;
+  const {
+    description = "",
+    title = "",
+    authors = "",
+    publishedDate = "",
+    imageLinks = {},
+  } = volumeInfo;
+  const { thumbnail = "" } = imageLinks;
   const [bookDescription, setBookDescription] = useState(true);
-  const s_h_d = bookDescription?"Hide Details":"Show Details"
-  // const [bookObject,setBookObject] = useState({});
+  const s_h_d = bookDescription ? "Hide Details" : "Show Details";
   
-  const addToCart = ()=>{
+  // const [bookObject,setBookObject] = useState({});
+
+  const addToCart = () => {
     // const newBookObject = {...bookObject,book}
-    const response = setBookData(book)
+    const response = setBookData(book);
     if (response) {
-      alert("Successfully added book in cart")
-      return router.reload(window.location.pathname)
+      alert("Successfully added book in cart");
+      return router.reload();
     } else {
-      return alert("Error while adding the book to cart")
+      return alert("Error while adding the book to cart");
     }
-    // return setBookData(newBookObject)  
-  }
+    // return setBookData(newBookObject)
+  };
 
   return (
     <div className={BD.box}>
@@ -67,7 +72,7 @@ export const BookDetails = (props) => {
               <img src={thumbnail} />
               <div className={BD.like}>
                 <img src={like} />
-                <text>लाइक करें </text>
+                <small>लाइक करें </small>
               </div>
             </div>
             {/* about book */}
@@ -77,11 +82,11 @@ export const BookDetails = (props) => {
 
                 <small> (Paperback) </small>
 
-                <text>
+                <small>
                   By: <span> {authors[0]} </span> (Author) | Publisher:{" "}
                   <span>Kodansha Comics </span>| Released: {publishedDate} |
                   Publisher Imprint: Kodansha Comics
-                </text>
+                </small>
               </div>
 
               <div className={BD.rating}>
@@ -122,7 +127,11 @@ export const BookDetails = (props) => {
                 <button type="button">
                   <span>Buy Now</span>
                 </button>
-                <button className={BD.button1} type="button" onClick={addToCart}>
+                <button
+                  className={BD.button1}
+                  type="button"
+                  onClick={addToCart}
+                >
                   <span>Add to Cart </span>
                 </button>
               </div>

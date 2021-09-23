@@ -101,7 +101,8 @@ export const Header = () => {
     const { volumeInfo, id } = book;
     const { title } = volumeInfo;
     const onBookClick = ()=>{
-      router.pathname.startsWith('book_details/')?router.replace(`book_details/${id}`):router.push(`book_details/${id}`)
+      setBooks([])
+      return router.pathname.startsWith('/book_details/')?router.replace(`/book_details/${id}/`):router.push(`/book_details/${id}`)
     }
     return (
       <small

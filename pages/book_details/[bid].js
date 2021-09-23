@@ -31,16 +31,24 @@ const Book_details = () => {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [book, setBook] = useState({});
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
-  if (router.isReady) {
+    if (router.isReady) {
+      try {
+        const { query } = router;
+        console.log(query);
+        const { bid } = query;
+        console.log(bid);
+        return setQuery(bid);
+      } catch (error) {}
+    }
+  });
+
+  useEffect(() => {
+   if (query!=="") {
     try {
-      const { query } = router;
-      console.log(query);
-      const { bid } = query;
-      console.log(bid);
-      
-      const response = callAPI(bid);
+      const response = callAPI(query);
       // console.log(response);
       if (response) {
         const onResolve = (resolvedData) => {
@@ -55,8 +63,8 @@ const Book_details = () => {
         return alert("Sorry some server error");
       }
     } catch (error) {}
-  }
-  }, []);
+   }
+  }, [query]);
 
   const renderedObject = loading ? (
     <div
