@@ -51,14 +51,14 @@ export const Header = () => {
   const [currency, setCurrency] = React.useState("");
   const [searchQuery, setSearchQuery] = React.useState("");
   const [books, setBooks] = React.useState([]);
-  const [quantity,setQuantity] = React.useState(0)
+  const [quantity, setQuantity] = React.useState(0)
   const router = useRouter();
 
-  React.useEffect(()=>{
+  React.useEffect(() => {
     if (typeof window !== 'undefined') {
       return setQuantity(getQuantity())
     }
-  },[])
+  }, [])
 
   const searchBooks = (searchQuery) => {
     // console.log("in after component mount");
@@ -72,12 +72,12 @@ export const Header = () => {
 
           return setBooks(items.slice(0, 4));
         };
-        const onReject = (rejectData) => {};
+        const onReject = (rejectData) => { };
         response.then(onResolve, onReject);
       } else {
         return alert("Sorry some server error");
       }
-    } catch (error) {}
+    } catch (error) { }
   };
 
   const currencyOptions = (value, index) => {
@@ -100,9 +100,9 @@ export const Header = () => {
   const showBookName = (book, index) => {
     const { volumeInfo, id } = book;
     const { title } = volumeInfo;
-    const onBookClick = ()=>{
+    const onBookClick = () => {
       setBooks([])
-      return router.pathname.startsWith('/book_details/')?router.replace(`/book_details/${id}/`):router.push(`/book_details/${id}`)
+      return router.pathname.startsWith('/book_details/') ? router.replace(`/book_details/${id}/`) : router.push(`/book_details/${id}`)
     }
     return (
       <small
@@ -117,13 +117,16 @@ export const Header = () => {
   const showAuthorName = (book, index) => {
     const { volumeInfo, id } = book;
     const { authors } = volumeInfo;
-
+    const onBookClick = () => {
+      setBooks([])
+      return router.pathname.startsWith('/book_details/') ? router.replace(`/book_details/${id}/`) : router.push(`/book_details/${id}`)
+    }
     return (
       <small
         key={index}
-        onClick={() => {
-          router.push({ pathname: "book_details", query: { id } });
-        }}
+        key={index}
+        onClick={onBookClick}
+        
       >
         {authors}{" "}
       </small>
@@ -157,11 +160,11 @@ export const Header = () => {
           <div className={HS.Login}>Login</div>
           <div className={HS.signup}>Signup</div>
         </div>
-        <Link href ="/cart">
-        <div className={HS.cart}>
-          <img src={cartimg} />
-          <div>{quantity}</div>
-        </div>
+        <Link href="/cart">
+          <div className={HS.cart}>
+            <img src={cartimg} />
+            <div>{quantity}</div>
+          </div>
         </Link>
       </div>
       <div className={HS.bottomHeader}>
