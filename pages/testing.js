@@ -1,5 +1,5 @@
 // import Footer from "../components/FooterBox"
-import {CartBox} from "../components/CartBox"
+// import {CartBox} from "../components/CartBox"
 const Testing = ()=>{
 
 const styles= {

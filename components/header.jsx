@@ -157,10 +157,12 @@ export const Header = () => {
           <div className={HS.Login}>Login</div>
           <div className={HS.signup}>Signup</div>
         </div>
+        <Link href ="/cart">
         <div className={HS.cart}>
           <img src={cartimg} />
           <div>{quantity}</div>
         </div>
+        </Link>
       </div>
       <div className={HS.bottomHeader}>
         <div className={HS.bottomHeaderNav}>
