@@ -6,20 +6,26 @@ import CB from "../styles/components/CartBox.module.css";
 
 const bookimg = "/images/bookimg3.jpg"
 
-export const CartBox = () => {
+export const CartBox = (props) => {
+  const {book,key,increment,decrement} = props
+  const {quantity,volumeInfo,saleInfo,id} = book
+  const {title,authors,imageLinks} = volumeInfo
+  const {thumbnail} = imageLinks
+  const {retailPrice={}} = saleInfo
+  const {amount = 500} = retailPrice
   return (
-    <div className={CB.box}>
-      <div className={CB.img}>
-        <img src={bookimg} alt />
+    <div className={CB.box} key={key}>
+      <div className={CB.imag}>
+        <img src={thumbnail} alt="" />
       </div>
       <div className={CB.details}>
 
         <div className={CB.title}>
-          <h3>React.js Book: Learning React JavaScript Library From Scratch</h3>
-          <strong>₹10,570.00</strong>
+          <h3>{title}</h3>
+          <strong>₹{amount}</strong>
         </div>
 
-        <div className={CB.publisher}> <small> Paperback </small>
+        <div className={CB.publisher}> <small> {authors} </small>
         </div>
 
         <div className={CB.stock}> <small> In stock </small>
@@ -30,11 +36,15 @@ export const CartBox = () => {
 
         <div className={CB.quantity}>
           <div className={CB.qty}>
-            <strong>-</strong>  <span>Qty: 1 </span><strong>+</strong>
+            <strong onClick={()=>{decrement(id,quantity)}}>-</strong>  <span>Qty: {quantity} </span><strong onClick={()=>{increment(id,quantity)}}>+</strong>
           </div>
           <div className={CB.delete}><span>Delete</span></div>
           <div className={CB.smlt}><span>See more like this</span></div>
         </div>
+     
+      <div className = {CB.price}>
+        <span>Price of {quantity} books = {parseInt(amount)*parseInt(quantity)}</span>
+      </div>
       </div>
     </div>
   )

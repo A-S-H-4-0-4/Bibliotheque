@@ -1,29 +1,33 @@
 .box{
   height: auto;
   width: 100%;
-  background-color: #EAEDED;
+  /* background-color: black; */
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
 }
 
 
 .shoppingcart{
   height: auto;
-  width: 70%;
+  width: 75%;
   display: flex;
   flex-direction: column;
-  margin-left: 30px;
+  /* margin-left: 30px; */
   margin-top: 50px;
   margin-bottom: 100px;
   /* border: 1px solid red; */
   background-color: white;
   align-items: center;
+  padding:10px;
 }
 
 
 .heading {
   height : 70px;
-  width : 94%;
+  width : 100%;
   align-items: flex-end;
   justify-content: space-between;
   display: flex;
@@ -58,4 +62,46 @@
   margin-right: 25px;
   font-size: 20px;
   /* border: 1px solid red;  */
+}
+.paymentBox{
+  height:300px;
+  width: 300px;
+  position: absolute;
+  right:20px;
+  top: 160px;
+  /* border:1px solid red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items:center;
+  background: white;
+  box-shadow: 5px 5px 5px 5px  #ccc;
+  border-radius: 10px;
+}
+.paymentBoxProceed{
+  height:30%;
+  width:100%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction:column;
+  align-items:center;
+
+}
+.paymentBoxProceed p{
+  margin: 0px;
+  font-size:large;
+  color: black;
+}
+.paymentBoxProceed div{
+  height:40px;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  border-radius: 10px;
+  background-color:rgb(102, 37, 37);
+  color: white;
+  font-size: medium;
+  font-weight: bold;
+  cursor: pointer;
 }
