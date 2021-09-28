@@ -22,7 +22,7 @@ const dollar = "/icons/dollar-symbol.png";
 export const BookDetails = (props) => {
   const router = useRouter();
   const { book } = props;
-  const { volumeInfo, id } = book;
+  const { saleInfo,volumeInfo, id } = book;
   const {
     description = "",
     title = "",
@@ -30,10 +30,12 @@ export const BookDetails = (props) => {
     publishedDate = "",
     imageLinks = {},
   } = volumeInfo;
+  const { retailPrice = {} } = saleInfo;
+  const { amount = 500 } = retailPrice;
   const { thumbnail = "" } = imageLinks;
   const [bookDescription, setBookDescription] = useState(true);
   const s_h_d = bookDescription ? "Hide Details" : "Show Details";
-  
+
   // const [bookObject,setBookObject] = useState({});
 
   const addToCart = () => {
@@ -102,7 +104,7 @@ export const BookDetails = (props) => {
               <div className={BD.bookdetails}>
                 <div className={BD.price}>
                   <s>₹847</s>
-                  <span> ₹551 </span>
+                  <span> ₹{amount} </span>
                 </div>
 
                 <div className={BD.discount}>

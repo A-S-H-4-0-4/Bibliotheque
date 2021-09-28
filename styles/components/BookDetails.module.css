@@ -5,6 +5,7 @@
   flex-direction: column;
   align-items: center;
   /* border: 2px solid red; */
+  margin-top: 140px;
 }
 
 
@@ -93,7 +94,7 @@
   color: white;
 }
 .summary{
-  height: 270px;
+  height: 350px;
   width: 610px;
   /* border: 2px solid rgb(255, 252, 88); */
   margin-left: 17px;

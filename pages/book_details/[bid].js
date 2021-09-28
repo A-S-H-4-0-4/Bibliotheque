@@ -69,6 +69,7 @@ const Book_details = () => {
   const renderedObject = loading ? (
     <div
       style={{
+        marginTop:"140px",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",

@@ -10,7 +10,7 @@
 
 .mainbox{
     position: relative;
-    top: 20px;
+    top: 160px;
     height: auto;
     width: 100%;
     
@@ -77,7 +77,7 @@
 
 .footer{
   position: relative;
-  top: 20px;
+  /* top: 160px; */
   width : 100%;
 
 }

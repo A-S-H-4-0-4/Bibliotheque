@@ -10,6 +10,13 @@ import { useRouter } from "next/router";
 // styles
 import cart from "../styles/components/cart.module.css";
 
+
+// icons
+const cartimg = "/icons/cart.png"
+
+// next link
+import Link from "next/link";
+
 // component
 import { CartBox } from "../components/CartBox";
 import { Header } from "../components/header";
@@ -46,12 +53,22 @@ const Cart = () => {
       ? router.reload()
       : alert("Problem while decreasing the quantity");
   };
-
+ 
   const showBooks = () => {
-    const renderBooks = [];
-    if (books &&  books.length > 0) {
+   let count = 0;
+
+
+    for (const book of books) {
+      if (book) {
+        count = count + 1;
+      }
+    }
+
+
+    if (count > 0) {
+      const renderBooks = [];
       for (const book of books) {
-        if(!book){ continue};
+        if (!book) { continue };
         const { quantity, saleInfo } = book;
         const { retailPrice = {} } = saleInfo;
         const { amount = 500 } = retailPrice;
@@ -69,6 +86,20 @@ const Cart = () => {
 
       return renderBooks;
     }
+
+    else if (count === 0) {
+      return (
+        <div className={cart.empty}>
+          <img src={cartimg} />
+          <strong>Your cart is empty.&nbsp;</strong>
+          <Link href="/home">
+            <span>  Start Shopping</span>
+          </Link>
+        </div>
+      )
+    }
+
+
   };
 
   return (
@@ -78,8 +109,14 @@ const Cart = () => {
       <div className={cart.shoppingcart}>
         <div className={cart.heading}>
           <span>Shopping Cart</span>
+          <small>Price</small>
         </div>
+
+
+
         {showBooks()}
+
+
         <div className={cart.subtotal}>
           <span>
             Subtotal ({totalQuantity} books): <strong> ₹{totalPrice} </strong>

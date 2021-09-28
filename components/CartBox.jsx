@@ -7,26 +7,29 @@ import { deleteBook } from "../api/bookStorage";
 // router
 import { useRouter } from "next/router";
 
+import Link from "next/link";
+
+
 // images
 
 const bookimg = "/images/bookimg3.jpg"
 
 export const CartBox = (props) => {
-  
+
   const router = useRouter();
 
-  const {book,key,increment,decrement} = props
-  const {quantity,volumeInfo,saleInfo,id} = book
-  const {title,authors,imageLinks={}} = volumeInfo
-  const {thumbnail = bookimg} = imageLinks
-  const {retailPrice={}} = saleInfo
-  const {amount = 500} = retailPrice
+  const { book, key, increment, decrement } = props
+  const { quantity, volumeInfo, saleInfo, id } = book
+  const { title, authors, imageLinks = {} } = volumeInfo
+  const { thumbnail = bookimg } = imageLinks
+  const { retailPrice = {} } = saleInfo
+  const { amount = 500 } = retailPrice
 
   const onDelete = () => {
 
     const response = deleteBook(id)
     if (response) {
-        return router.reload()
+      return router.reload()
     }
     return alert("Some problem while deleting book form cart")
 
@@ -56,15 +59,19 @@ export const CartBox = (props) => {
 
         <div className={CB.quantity}>
           <div className={CB.qty}>
-            <strong onClick={()=>{decrement(id,quantity)}}>-</strong>  <span>Qty: {quantity} </span><strong onClick={()=>{increment(id,quantity)}}>+</strong>
+            <strong onClick={() => { decrement(id, quantity) }}>-</strong>  <span>Qty: {quantity} </span><strong onClick={() => { increment(id, quantity) }}>+</strong>
           </div>
           <div className={CB.delete}><span onClick={onDelete}>Delete</span></div>
-          <div className={CB.smlt}><span>See more like this</span></div>
+          <Link href="/BestSeller">
+            <div className={CB.smlt}>
+              <span>See more like this </span>
+            </div>
+          </Link>
         </div>
-     
-      <div className = {CB.price}>
-        <span>Price of {quantity} books = {parseInt(amount)*parseInt(quantity)}</span>
-      </div>
+
+        <div className={CB.price}>
+          <span>Price of {quantity} books = {parseInt(amount) * parseInt(quantity)}</span>
+        </div>
       </div>
     </div>
   )
