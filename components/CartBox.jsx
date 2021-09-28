@@ -1,22 +1,42 @@
 // styles
 import CB from "../styles/components/CartBox.module.css";
 
+// storage api 
+import { deleteBook } from "../api/bookStorage";
+
+// router
+import { useRouter } from "next/router";
 
 // images
 
 const bookimg = "/images/bookimg3.jpg"
 
 export const CartBox = (props) => {
+  
+  const router = useRouter();
+
   const {book,key,increment,decrement} = props
   const {quantity,volumeInfo,saleInfo,id} = book
-  const {title,authors,imageLinks} = volumeInfo
-  const {thumbnail} = imageLinks
+  const {title,authors,imageLinks={}} = volumeInfo
+  const {thumbnail = bookimg} = imageLinks
   const {retailPrice={}} = saleInfo
   const {amount = 500} = retailPrice
+
+  const onDelete = () => {
+
+    const response = deleteBook(id)
+    if (response) {
+        return router.reload()
+    }
+    return alert("Some problem while deleting book form cart")
+
+
+  }
+
   return (
     <div className={CB.box} key={key}>
       <div className={CB.imag}>
-        <img src={thumbnail} alt="" />
+        <img src={thumbnail} alt="image not available" />
       </div>
       <div className={CB.details}>
 
@@ -38,7 +58,7 @@ export const CartBox = (props) => {
           <div className={CB.qty}>
             <strong onClick={()=>{decrement(id,quantity)}}>-</strong>  <span>Qty: {quantity} </span><strong onClick={()=>{increment(id,quantity)}}>+</strong>
           </div>
-          <div className={CB.delete}><span>Delete</span></div>
+          <div className={CB.delete}><span onClick={onDelete}>Delete</span></div>
           <div className={CB.smlt}><span>See more like this</span></div>
         </div>
      

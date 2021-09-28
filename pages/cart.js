@@ -49,8 +49,9 @@ const Cart = () => {
 
   const showBooks = () => {
     const renderBooks = [];
-    if (books.length > 0) {
+    if (books &&  books.length > 0) {
       for (const book of books) {
+        if(!book){ continue};
         const { quantity, saleInfo } = book;
         const { retailPrice = {} } = saleInfo;
         const { amount = 500 } = retailPrice;
@@ -65,6 +66,7 @@ const Cart = () => {
           />
         );
       }
+
       return renderBooks;
     }
   };

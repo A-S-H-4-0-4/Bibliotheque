@@ -56,8 +56,6 @@ export const getBookData = (key) => {
 };
 
 export const setQuantity = (id,updatedQuantity) => {
-console.log(updatedQuantity);
-console.log(id);
 const bookIndex = getBookData("bookIndexes")?getBookData("bookIndexes")[id]:null;
 if (bookIndex && typeof parseInt(bookIndex)==='number') {
 
@@ -81,7 +79,26 @@ return false;
 export const getQuantity = () => {
 let sum = 0;
 const books = getBookData("books");
-books && books.forEach((book)=>{sum+=parseInt(book.quantity)})
+books && books.forEach((book)=>{sum+= book?parseInt(book.quantity):0})
 return sum
+
+}
+
+export const deleteBook = (id) => {
+  const bookIndex = getBookData("bookIndexes")?getBookData("bookIndexes")[id]:null;
+  if (bookIndex && typeof parseInt(bookIndex) === 'number') {
+  
+    const books = getBookData("books") || []
+    const book = books[bookIndex-1]
+    if (book) {
+      books[bookIndex-1]=null;
+      const response = setBookData(books,true)
+      
+      return response?true:false;
+        
+      }
+      
+    }
+  return false;
 
 }
