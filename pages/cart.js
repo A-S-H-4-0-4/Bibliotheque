@@ -54,17 +54,15 @@ const Cart = () => {
       : alert("Problem while decreasing the quantity");
   };
  
-  const showBooks = () => {
-   let count = 0;
-
-
+  const showBooks = () => { 
+    
+    let count = 0;
     for (const book of books) {
       if (book) {
-        count = count + 1;
+        count++;
+        break;
       }
     }
-
-
     if (count > 0) {
       const renderBooks = [];
       for (const book of books) {
