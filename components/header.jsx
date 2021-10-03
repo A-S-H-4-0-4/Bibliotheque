@@ -155,11 +155,13 @@ export const Header = () => {
             </div>
           )}
         </div>
+        <Link href="/login">
         <div className={HS.login}>
           <img src={login} />
           <div className={HS.Login}>Login</div>
           <div className={HS.signup}>Signup</div>
         </div>
+        </Link>
         <Link href="/cart">
           <div className={HS.cart}>
             <img src={cartimg} />

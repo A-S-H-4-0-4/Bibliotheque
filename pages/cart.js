@@ -38,22 +38,22 @@ const Cart = () => {
       return setBooks([]);
     }
   }, []);
-
+  
   const increment = (id, quantity) => {
     quantity++;
     const response = setQuantity(id, quantity);
     return response
-      ? router.reload()
-      : alert("Problem while adding the quantity");
+    ? router.reload()
+    : alert("Problem while adding the quantity");
   };
   const decrement = (id, quantity) => {
     quantity--;
     const response = setQuantity(id, quantity);
     return response
-      ? router.reload()
-      : alert("Problem while decreasing the quantity");
+    ? router.reload()
+    : alert("Problem while decreasing the quantity");
   };
- 
+  
   const showBooks = () => { 
     
     let count = 0;
@@ -99,7 +99,6 @@ const Cart = () => {
 
 
   };
-
   return (
     <div className={cart.box}>
       <Header />
