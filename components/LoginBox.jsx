@@ -7,7 +7,7 @@ const google = "/icons/google.gif"
 const fb = "/icons/fb.gif"
 
 // local storage
-import { setUserDetails,SData } from "../api/userDetails";
+import { setUserDetails, SData } from "../api/userDetails";
 
 // hooks
 import React from "react";
@@ -16,7 +16,7 @@ import React from "react";
 import { useRouter } from "next/router";
 
 // link
-import Link from "next/link";
+// import Link from "next/link";
 
 // validation
 import { validateEmail } from "../validation";
@@ -40,25 +40,30 @@ export const LoginBox = () => {
   }
 
 
-// for sinup 
+  // for sinup 
   const submit = () => {
 
     if (validateEmail(values.email)) {
-      if (values.password === values.confirmPassword) {
-        localStorage.setItem("signUpData", JSON.stringify(values));
+      if (values.password.length >= 6) {
+        if (values.password === values.confirmPassword) {
+          localStorage.setItem("signUpData", JSON.stringify(values));
 
-        if(SData()){ 
-         return router.push("/home")
+          if (SData()) {
+            return router.push("/home")
+          }
+
+          else {
+            alert("SORRY!! There is some error....")
+          }
         }
-
-        else {
-          alert("SORRY!! There is some error....") 
-        }
-      }
-
+        
       else {
         alert("password does not match")
       }
+      }
+      else {
+        alert("password must be at least 6 characters")
+      };
     }
 
     else {
