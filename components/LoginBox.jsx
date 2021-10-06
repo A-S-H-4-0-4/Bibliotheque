@@ -6,45 +6,67 @@ import LB from "../styles/components/LoginBox.module.css";
 const google = "/icons/google.gif"
 const fb = "/icons/fb.gif"
 
+// local storage
+import { setUserDetails,SData } from "../api/userDetails";
+
 // hooks
 import React from "react";
 
+// router
+import { useRouter } from "next/router";
+
+// link
+import Link from "next/link";
+
+// validation
+import { validateEmail } from "../validation";
 
 
 export const LoginBox = () => {
-
-  const [format, setFormat] = React.useState("")
-
-
-  const emailformat = (event, format) => {
-    const { target } = event;
-    const { value } = target;
-
-    const EFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
-
-      if (value.match(EFormat)) {
-        alert("format")
-      }
-      else {
-        alert("format2")
-      }
-    }
+  const router = useRouter();
 
 
-  const passwordformat = (event) => {
-    const { target } = event;
-    const { value } = target;
-    if (value.length === 1) {
-      return true;
+  const [values, setValues] = React.useState({ email: "", password: "", confirmPassword: "", })
 
-    }
+
+  const getValues = (event) => {
+
+    setValues((newGetValues) => ({
+      ...newGetValues,
+      [event.target.name]: event.target.value,
+    }))
+
 
   }
 
 
-
+// for sinup 
   const submit = () => {
- 
+
+    if (validateEmail(values.email)) {
+      if (values.password === values.confirmPassword) {
+        localStorage.setItem("signUpData", JSON.stringify(values));
+
+        if(SData()){ 
+         return router.push("/home")
+        }
+
+        else {
+          alert("SORRY!! There is some error....") 
+        }
+      }
+
+      else {
+        alert("password does not match")
+      }
+    }
+
+    else {
+      alert("please enter a valid email")
+    };
+
+
+
 
   }
 
@@ -72,18 +94,18 @@ export const LoginBox = () => {
 
           <div className={LB.email}>
             <span>Your Email Address:</span>
-            <input type="email" placeholder="eg. bookswagon@gmail.com" onChange={emailformat} ></input>
+            <input type="email" placeholder="eg. bookswagon@gmail.com" ></input>
           </div>
           <div className={LB.password}>
             <span>Password:</span>
-            <input type="text" onChange={passwordformat} />
+            <input type="password" />
           </div>
 
           <div className={LB.forgotpass}>
             <span>Forgot Password ?</span>
           </div>
 
-          <div className={LB.lbutton} onClick={submit} >
+          <div className={LB.lbutton}  >
             <span >Login</span>
           </div>
 
@@ -101,24 +123,24 @@ export const LoginBox = () => {
 
           </div>
 
-          <div className={LB.email}>
+          <div className={LB.email} >
             <span>Your Email Address:</span>
-            <input type="text" />
+            <input type="email" name="email" onChange={getValues} value={values.email} />
           </div>
 
-          <div className={LB.password}>
+          <div className={LB.password} >
             <span>Password:</span>
-            <input type="text" />
+            <input type="password" name="password" onChange={getValues} value={values.password} />
           </div>
 
-          <div className={LB.Cpassword}>
+          <div className={LB.Cpassword} >
             <span>Confirm Password:</span>
-            <input type="text" />
+            <input type="password" name="confirmPassword" onChange={getValues} value={values.confirmPassword} />
           </div>
 
 
-          <div className={LB.sbutton}>
-            <span>Create Account</span>
+          <div className={LB.sbutton} >
+            <span onClick={submit}>Create Account</span>
           </div>
 
 
