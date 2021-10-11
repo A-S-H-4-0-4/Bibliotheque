@@ -7,7 +7,7 @@ const google = "/icons/google.gif"
 const fb = "/icons/fb.gif"
 
 // local storage
-import { setUserDetails, SData } from "../api/userDetails";
+import { setUserSignIn,userLogin } from "../api/userDetails";
 
 // hooks
 import React from "react";
@@ -27,7 +27,7 @@ export const LoginBox = () => {
 
 
   const [values, setValues] = React.useState({ email: "", password: "", confirmPassword: "", })
-
+  const [loginValues,setLoginValues] = React.useState({email: "", password: "",})
 
   const getValues = (event) => {
 
@@ -36,25 +36,34 @@ export const LoginBox = () => {
       [event.target.name]: event.target.value,
     }))
 
-
   }
+  const handleLogin = (event) => {
+
+    const value = event.target.value
+    const name = event.target.name
+
+    const newLoginValues = {...loginValues,[name]:value}
+    return setLoginValues(newLoginValues)
+
+}
 
 
   // for sinup 
   const submit = () => {
 
     if (validateEmail(values.email)) {
-      if (values.password.length >= 6) {
+      if (values.password.length >= 8) {
         if (values.password === values.confirmPassword) {
-          localStorage.setItem("signUpData", JSON.stringify(values));
+          
+            const response = setUserSignIn(values);
+            if (response) {
+              alert("successfully signed in click ok to continue")
+              return router.push('/home');
+            }else {
+              return alert('Sorry unable to sign in')
+            }
 
-          if (SData()) {
-            return router.push("/home")
-          }
-
-          else {
-            alert("SORRY!! There is some error....")
-          }
+          
         }
         
       else {
@@ -62,7 +71,7 @@ export const LoginBox = () => {
       }
       }
       else {
-        alert("password must be at least 6 characters")
+        alert("password must be at least 8 characters")
       };
     }
 
@@ -75,7 +84,7 @@ export const LoginBox = () => {
 
   }
 
-
+  const setLogin = () => {}
 
 
 
