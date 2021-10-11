@@ -3,7 +3,6 @@
 
 export const setBookData = (object, modified = false) => {
   let newBooks = [];
-  
   if (!modified) {
     const booksObject = getBookData("books");
     const bookIndexes = getBookData("bookIndexes")?getBookData("bookIndexes"):{}
