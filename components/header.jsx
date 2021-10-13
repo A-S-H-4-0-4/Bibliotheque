@@ -2,6 +2,7 @@
 
 // API
 import { callAPI } from "../api/API";
+// import { setUserSignIn } from "../api/userDetails";
 
 // storage
 import { getQuantity } from "../api/bookStorage";
@@ -126,12 +127,43 @@ export const Header = () => {
         key={index}
         key={index}
         onClick={onBookClick}
-        
+
       >
         {authors}{" "}
       </small>
     );
   };
+
+
+  const checklogin = () => {
+
+
+    if (typeof window !== 'undefined') {
+      let sessionkey = localStorage.getItem('sessionKey');
+      if (sessionkey) {
+        let user = localStorage.getItem('userObject');
+        user = JSON.parse(user);
+        return (
+          <div className={HS.showEmail} style={{ color: "white", fontSize: "medium", cursor: "pointer" }}>
+            {user.email}
+          </div>
+        )
+      }
+
+      else {
+        return (
+          <Link href="/login">
+            <div className={HS.login}>
+              <img src={login} />
+              <div className={HS.Login}>Login</div>
+              <div className={HS.signup}>Signup</div>
+            </div>
+          </Link>
+        )
+      }
+
+    }
+  }
 
   return (
     <div className={HS.header}>
@@ -155,13 +187,9 @@ export const Header = () => {
             </div>
           )}
         </div>
-        <Link href="/login">
-        <div className={HS.login}>
-          <img src={login} />
-          <div className={HS.Login}>Login</div>
-          <div className={HS.signup}>Signup</div>
-        </div>
-        </Link>
+
+        {checklogin()}
+
         <Link href="/cart">
           <div className={HS.cart}>
             <img src={cartimg} />

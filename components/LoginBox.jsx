@@ -87,12 +87,13 @@ export const LoginBox = () => {
 
   }
 
+
   const setLogin = () => {
     const response = userLogin(loginValues);
     if (response) {
       return router.push('/home');
     } else {
-      return alert('Sorry unable to log in')
+      return alert("Invalid email or password")
     }
 
 
@@ -101,7 +102,7 @@ export const LoginBox = () => {
 
 
 
- 
+
 
 
   return (

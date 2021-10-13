@@ -6,11 +6,22 @@ import { generate } from "../sessionKey";
 
 
 export const setUserSignIn = (values) => {
+  
+ 
 
   if (typeof values === "object") {
-    localStorage.setItem("userObject", JSON.stringify(values));
-    return true;
+    let user = localStorage.getItem("userObject");
+    user = JSON.parse(user);
+    
+    if (user !== null) {
+        alert("you already have an account")
+    }
+    else {
+      localStorage.setItem("userObject", JSON.stringify(values));
+      return true;
+    }
   }
+
   return false;
 
 }
@@ -27,7 +38,7 @@ export const userLogin = (loginValues) => {
       while (true) {
         let sessionKey = generate()
         if (sessionKeys.indexOf(sessionKey) === -1) {
-          const newSessionKeys = [...sessionKeys]
+          let newSessionKeys = [...sessionKeys]
           newSessionKeys.push(sessionKey)
           localStorage.setItem("sessionKeys", JSON.stringify(newSessionKeys));
           localStorage.setItem("sessionKey", sessionKey);
@@ -37,11 +48,11 @@ export const userLogin = (loginValues) => {
 
       return true;
     } else {
-      alert("Invalidhkjh")
+      return false;
     }
 
   } else {
-    alert("Invalid")
+    return false;
   }
 
 
