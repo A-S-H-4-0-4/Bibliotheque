@@ -53,12 +53,17 @@ export const Header = () => {
   const [searchQuery, setSearchQuery] = React.useState("");
   const [books, setBooks] = React.useState([]);
   const [quantity, setQuantity] = React.useState(0)
+  const [sessionkey, setSessionkey] = React.useState("")
   const router = useRouter();
 
   React.useEffect(() => {
     if (typeof window !== 'undefined') {
-      return setQuantity(getQuantity())
-    }
+      return (setQuantity(getQuantity()),setSessionkey(localStorage.getItem('sessionKey'))); 
+    
+        
+      }
+  
+
   }, [])
 
   const searchBooks = (searchQuery) => {
@@ -136,33 +141,29 @@ export const Header = () => {
 
 
   const checklogin = () => {
-
-
-    if (typeof window !== 'undefined') {
-      let sessionkey = localStorage.getItem('sessionKey');
-      if (sessionkey) {
-        let user = localStorage.getItem('userObject');
-        user = JSON.parse(user);
-        return (
-          <div className={HS.showEmail} style={{ color: "white", fontSize: "medium", cursor: "pointer" }}>
-            {user.email}
-          </div>
-        )
-      }
-
-      else {
-        return (
-          <Link href="/login">
-            <div className={HS.login}>
-              <img src={login} />
-              <div className={HS.Login}>Login</div>
-              <div className={HS.signup}>Signup</div>
-            </div>
-          </Link>
-        )
-      }
-
+    if (sessionkey) {
+      let user = localStorage.getItem('userObject');
+      user = JSON.parse(user);
+      return (
+        <div className={HS.showEmail} style={{ color: "white", fontSize: "medium", cursor: "pointer" }}>
+          {user.email}
+        </div>
+      )
     }
+
+    else {
+      return (
+        <Link href="/login">
+          <div className={HS.login}>
+            <img src={login} />
+            <div className={HS.Login}>Login</div>
+            <div className={HS.signup}>Signup</div>
+          </div>
+        </Link>
+      )
+    }
+
+
   }
 
   return (

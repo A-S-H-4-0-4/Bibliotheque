@@ -2,7 +2,7 @@
 import BD from "../styles/components/BookDetails.module.css";
 
 // hooks
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // router
 import { useRouter } from "next/router";
@@ -22,7 +22,7 @@ const dollar = "/icons/dollar-symbol.png";
 export const BookDetails = (props) => {
   const router = useRouter();
   const { book } = props;
-  const { saleInfo,volumeInfo, id } = book;
+  const { saleInfo, volumeInfo, id } = book;
   const {
     description = "",
     title = "",
@@ -35,19 +35,32 @@ export const BookDetails = (props) => {
   const { thumbnail = "" } = imageLinks;
   const [bookDescription, setBookDescription] = useState(true);
   const s_h_d = bookDescription ? "Hide Details" : "Show Details";
+  const [sessionkey, setSessionkey] = useState("")
 
   // const [bookObject,setBookObject] = useState({});
 
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      return setSessionkey(localStorage.getItem('sessionKey'));
+    }
+  }, [])
+
   const addToCart = () => {
     // const newBookObject = {...bookObject,book}
-    const response = setBookData(book);
-    if (response) {
-      alert("Successfully added book in cart");
-      return router.reload();
-    } else {
-      return alert("Error while adding the book to cart");
+    if (sessionkey) {
+      const response = setBookData(book);
+      if (response) {
+        alert("Successfully added book in cart");
+        return router.reload();
+      } else {
+        return alert("Error while adding the book to cart");
+      }
+      // return setBookData(newBookObject)
     }
-    // return setBookData(newBookObject)
+
+    else {
+        alert("you have to login to add the book")
+    }
   };
 
   return (
