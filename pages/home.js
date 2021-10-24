@@ -99,7 +99,7 @@ export default class Home extends Component {
                                         <div>
                                             <BookBox />
                                         </div>
-                                       
+
                                     </Slider>
 
                                 </div>
@@ -182,7 +182,7 @@ export default class Home extends Component {
                                         <div>
                                             <AuthorBox />
                                         </div>
-                                        
+
                                         <div>
                                             <AuthorBox />
                                         </div>
