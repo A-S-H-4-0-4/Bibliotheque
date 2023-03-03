@@ -7,6 +7,10 @@ import { useRouter } from "next/router";
 // API
 import { callAPI } from "../../api/API";
 
+// next image
+import Image  from "next/image";
+
+
 // styles
 // import bd from "../styles/components/book_details.module.css";
 
@@ -75,7 +79,7 @@ const Book_details = () => {
         justifyContent: "center",
       }}
     >
-      <img src={loadingGif} />
+      <Image src={loadingGif} />
     </div>
   ) : (
     <BookDetails book={book} />

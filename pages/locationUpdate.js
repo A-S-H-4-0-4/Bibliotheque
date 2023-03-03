@@ -13,7 +13,7 @@ import { setLocation } from "../api/Updatelocation";
 
 
 
-const locationUpdate = () => {
+const LocationUpdate = () => {
   const [values, setValues] = React.useState({ date: "", time: "", place: "", message: "", })
 
 
@@ -77,7 +77,7 @@ const locationUpdate = () => {
 }
 
 
-export default locationUpdate;
+export default LocationUpdate;
 
 
 

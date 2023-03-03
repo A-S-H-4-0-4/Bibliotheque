@@ -11,7 +11,7 @@ import Footer from "../components/FooterBox"
 import React from "react";
 
 
-export const OTracking = () => {
+const OTracking = () => {
 
   const [locationObject, setLocationObject] = React.useState("")
 
@@ -83,4 +83,4 @@ export const OTracking = () => {
   )
 }
 
-export default OTracking;
+export default OTracking

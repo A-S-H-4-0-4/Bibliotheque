@@ -35,7 +35,11 @@ const currencies = [
 const cartimg = "/icons/shopping-cart.png";
 const search = "/icons/search.png";
 const login = "/icons/login.png";
-const home = "/icons/home-img.png";
+const home = "/icons/home-Image.png";
+// next image
+import Image  from "next/image";
+
+
 
 // hooks
 import React from "react";
@@ -155,7 +159,7 @@ export const Header = () => {
       return (
         <Link href="/login">
           <div className={HS.login}>
-            <img src={login} />
+            <Image src={login} />
             <div className={HS.Login}>Login</div>
             <div className={HS.signup}>Signup</div>
           </div>
@@ -169,7 +173,7 @@ export const Header = () => {
   return (
     <div className={HS.header}>
       <div className={HS.upperHeader}>
-        <img src={logo} className={HS.logo} />
+        <Image src={logo} className={HS.logo} />
         <div className={HS.searchBox}>
           <div className={HS.search}>
             <input
@@ -177,7 +181,7 @@ export const Header = () => {
               value={searchQuery}
               onChange={changeSearch}
             />
-            <img src={search} />
+            <Image src={search} />
           </div>
           {books.length > 0 && searchQuery.length > 3 && (
             <div className={HS.searchResult}>
@@ -193,7 +197,7 @@ export const Header = () => {
 
         <Link href="/cart">
           <div className={HS.cart}>
-            <img src={cartimg} />
+            <Image src={cartimg} />
             <div>{quantity}</div>
           </div>
         </Link>
@@ -202,7 +206,7 @@ export const Header = () => {
         <div className={HS.bottomHeaderNav}>
           <Link href="/home">
             <div>
-              <img src={home} />
+              <Image src={home} />
             </div>
           </Link>
           <div>Books</div>

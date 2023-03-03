@@ -17,6 +17,10 @@ const cartimg = "/icons/cart.png"
 // next link
 import Link from "next/link";
 
+// next image
+import Image  from "next/image";
+
+
 // component
 import { CartBox } from "../components/CartBox";
 import { Header } from "../components/header";
@@ -89,7 +93,7 @@ const Cart = () => {
     else if (count === 0) {
       return (
         <div className={cart.empty}>
-          <img src={cartimg} />
+          <Image src={cartimg} />
           <strong>Your cart is empty.&nbsp;</strong>
           <Link href="/home">
             <span>  Start Shopping</span>

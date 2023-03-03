@@ -9,6 +9,9 @@ import "slick-carousel/slick/slick-theme.css";
 import Carousel from 'react-material-ui-carousel'
 import Slider from "react-slick";
 
+// next image
+import Image  from "next/image";
+
 
 // components
 import { Header } from "../components/header";
@@ -20,12 +23,12 @@ import React, { Component } from "react";
 
 // images
 const bannerimg1 = "/images/bannerimg1.jpg"
-const bannerimg2 = "/images/bannerimg.png"
+const bannerImage2 = "/images/bannerimg.png"
 const bannerimg3 = "/images/bannerimg3.png"
 const bannerimg4 = "/images/bannerimg4.png"
 const bannerimg5 = "/images/bannerimg5.png"
 
-export default class Home extends Component {
+ class Home extends Component {
 
 
 
@@ -62,11 +65,11 @@ export default class Home extends Component {
                     <div className={HS.book_content} >
                         <div className={HS.book_banner}>
                             <Carousel className={HS.carousel} indicators={false}>
-                                <img src={bannerimg1}></img>
-                                <img src={bannerimg2}></img>
-                                <img src={bannerimg3}></img>
-                                <img src={bannerimg4}></img>
-                                <img src={bannerimg5}></img>
+                                <Image src={bannerimg1}/>
+                                <Image src={bannerimg2}/>
+                                <Image src={bannerimg3}/>
+                                <Image src={bannerimg4}/>
+                                <Image src={bannerimg5}/>
 
                             </Carousel>
                         </div>
@@ -226,3 +229,4 @@ export default class Home extends Component {
 }
 
 
+export default Home

@@ -13,6 +13,11 @@ const instagram = "/icons/instagram.png"
 const pinterest = "/icons/pinterest.png"
 const youtube = "/icons/youtube.png"
 
+// next image
+import Image  from "next/image";
+
+
+
 // images
 const trustpay = "/images/trustpay.png"
 const card = "/images/card.jpeg"
@@ -37,10 +42,10 @@ const Footer = () => {
               <li>
                 <a href="https://www.bookswagon.com/aboutus">About Us</a></li>
               <li>
-                <a href="https://www.indeedjobs.com/sr-ecommerce-factory-private-limited" target="_blank">Career</a>
+                <a href="https://www.indeedjobs.com/sr-ecommerce-factory-private-limited">Career</a>
               </li>
               <li>
-                <a href="https://blog.bookswagon.com" target="_blank">Blog</a>
+                <a href="https://blog.bookswagon.com">Blog</a>
               </li>
               <li><a href="https://www.bookswagon.com/contactus">Contact Us</a>
               </li>
@@ -96,12 +101,12 @@ const Footer = () => {
             <a className={FB.follow} style={{ color: "#08d", fontSize: "medium" }} href="https://www.bookswagon.com/sitemap">Follow Us</a>
           </h3>
           <div className={FB.icons}>
-            <img src={facebook} />
-            <img src={twitter} />
-            <img src={linkedin} />
-            <img src={pinterest} />
-            <img src={instagram} />
-            <img src={youtube} />
+            <Image src={facebook} />
+            <Image src={twitter} />
+            <Image src={linkedin} />
+            <Image src={pinterest} />
+            <Image src={instagram} />
+            <Image src={youtube} />
           </div>
         </div>
       </div>
@@ -125,19 +130,19 @@ const Footer = () => {
 
         <div className={FB.rightbox}>
           <div className={FB.trustpay}>
-            <img src={trustpay} />
+            <Image src={trustpay} />
           </div>
 
           <div className={FB.payment}>
             <div className={FB.imgs}>
 
-              <img src={visa} />
-              <img src={mastercard} />
-              <img src={netbanking} />
-              <img src={banking} />
-              <img src={card} />
-              <img src={cod} />
-              <img src={paytm} />
+              <Image src={visa} />
+              <Image src={mastercard} />
+              <Image src={netbanking} />
+              <Image src={banking} />
+              <Image src={card} />
+              <Image src={cod} />
+              <Image src={paytm} />
             </div>
             <div className={FB.text}>
              <strong> 100% Secure Payment

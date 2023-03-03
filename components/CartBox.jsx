@@ -9,6 +9,10 @@ import { useRouter } from "next/router";
 
 import Link from "next/link";
 
+// next image
+import Image  from "next/image";
+
+
 
 // images
 
@@ -39,7 +43,7 @@ export const CartBox = (props) => {
   return (
     <div className={CB.box} key={key}>
       <div className={CB.imag}>
-        <img src={thumbnail} alt="image not available" />
+        <Image src={thumbnail} alt="image not available" />
       </div>
       <div className={CB.details}>
 

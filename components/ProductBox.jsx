@@ -6,6 +6,9 @@ import PB from "../styles/components/ProductBox.module.css";
 const bookimg = "/images/bookimg2.jpg"
 const pod = "/images/pod2.png"
 
+// next image
+import Image  from "next/image";
+
 
 
 export const ProductBox = () => {
@@ -13,7 +16,7 @@ export const ProductBox = () => {
     <div className={PB.box}>
       <div className={PB.serialno}>1.</div>
       <div className={PB.book}>
-        <img src={bookimg} alt={"bookimg"} />
+        <Image src={bookimg} alt={"bookimg"} />
       </div>
 
       <div className={PB.product_summary}>
@@ -68,7 +71,7 @@ export const ProductBox = () => {
         </div>
 
                  <div className={PB.pod}>
-                   <img src={pod}/>
+                   <Image src={pod}/>
                  </div>
        
 

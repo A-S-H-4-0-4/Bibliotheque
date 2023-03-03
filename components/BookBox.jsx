@@ -5,6 +5,9 @@ import BB from "../styles/components/BookBox.module.css";
 // images
 
 const img1 = '/images/bookimg1.jpg'
+// next image
+import Image  from "next/image";
+
 
 
 export const BookBox = () =>{
@@ -12,7 +15,7 @@ export const BookBox = () =>{
    <div className={BB.Box}>
    <div className={BB.imgBox}>
   
-        <img src={img1} />
+        <Image src={img1} />
       
     </div>
 

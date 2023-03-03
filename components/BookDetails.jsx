@@ -4,6 +4,11 @@ import BD from "../styles/components/BookDetails.module.css";
 // hooks
 import { useState, useEffect } from "react";
 
+// next image
+import Image  from "next/image";
+
+
+
 // router
 import { useRouter } from "next/router";
 // local storage
@@ -82,11 +87,11 @@ export const BookDetails = (props) => {
           {/* right box of bottom box */}
 
           <div className={BD.rightbox}>
-            {/* book img */}
+            {/* book Image */}
             <div className={BD.innerrightbox}>
-              <img src={thumbnail} />
+              <Image src={thumbnail} />
               <div className={BD.like}>
-                <img src={like} />
+                <Image src={like} />
                 <small>लाइक करें </small>
               </div>
             </div>
@@ -105,11 +110,11 @@ export const BookDetails = (props) => {
               </div>
 
               <div className={BD.rating}>
-                <img src={starR} />
-                <img src={starR} />
-                <img src={starR} />
-                <img src={starR} />
-                <img src={starG} />
+                <Image src={starR} />
+                <Image src={starR} />
+                <Image src={starR} />
+                <Image src={starR} />
+                <Image src={starG} />
                 &nbsp; &nbsp; | &nbsp;<small> 1 Review(s) </small>&nbsp; |&nbsp;{" "}
                 <small>Post a Review </small>
               </div>
@@ -127,7 +132,7 @@ export const BookDetails = (props) => {
                   </span>
                 </div>
 
-                <img src={action_left} />
+                <Image src={action_left} />
 
                 <div className={BD.edition}>
                   <span> International Edition</span>
@@ -158,7 +163,7 @@ export const BookDetails = (props) => {
             <div className={BD.innerbox}>
               <span>Safe & Secure Shopping</span>
               <div className={BD.securepay}>
-                <img src={safeshopiing} alt="" />
+                <Image src={safeshopiing} alt="" />
                 <span>
                   Payment accepted by All Major Credit and Debit cards, lnternet
                   banking, Paypal, Cash-on-Delivery.
@@ -166,16 +171,16 @@ export const BookDetails = (props) => {
               </div>
 
               <div className={BD.cards}>
-                <img src={card} alt="" />
+                <Image src={card} alt="" />
               </div>
 
               <div className={BD.cashdelivery}>
                 <div className={BD.globe}>
-                  <img src={globe} alt="" />
+                  <Image src={globe} alt="" />
                   <small>Worldwide Shipping Available</small>
                 </div>
                 <div className={BD.dollar}>
-                  <img src={dollar} alt="" />
+                  <Image src={dollar} alt="" />
                   <small>
                     Cash on Delivery Available in India at ₹30(additional)
                   </small>

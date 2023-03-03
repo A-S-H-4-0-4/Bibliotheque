@@ -6,6 +6,11 @@ import LB from "../styles/components/LoginBox.module.css";
 const google = "/icons/google.gif"
 const fb = "/icons/fb.gif"
 
+// next image
+import Image  from "next/image";
+
+
+
 // local storage
 import { setUserSignIn, userLogin } from "../api/userDetails";
 
@@ -182,10 +187,10 @@ export const LoginBox = () => {
 
           <div className={LB.Soption}>
             <div className={LB.google}>
-              <img src={google} alt="" />
+              <Image src={google} alt="" />
             </div>
             <div className={LB.fb}>
-              <img src={fb} alt="" />
+              <Image src={fb} alt="" />
             </div>
 
           </div>
