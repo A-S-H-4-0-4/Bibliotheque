@@ -39,7 +39,6 @@ export const LoginBox = () => {
   }
 
 
-
   const handleLogin = (event) => {
 
     const value = event.target.value
@@ -55,12 +54,14 @@ export const LoginBox = () => {
   const submit = () => {
 
     if (validateEmail(values.email)) {
+
       if (values.password.length >= 8) {
         if (values.password === values.confirmPassword) {
 
           const response = setUserSignIn(values);
           if (response) {
             alert("successfully signed in click ok to continue")
+            alert(typeof values.confirmPassword)
             return router.push('/home');
           } else {
             return alert('Sorry unable to sign in')
@@ -68,7 +69,6 @@ export const LoginBox = () => {
 
 
         }
-
         else {
           alert("password does not match")
         }
@@ -77,6 +77,8 @@ export const LoginBox = () => {
         alert("password must be at least 8 characters")
       };
     }
+
+
 
     else {
       alert("please enter a valid email")
@@ -99,10 +101,6 @@ export const LoginBox = () => {
 
 
   }
-
-
-
-
 
 
   return (

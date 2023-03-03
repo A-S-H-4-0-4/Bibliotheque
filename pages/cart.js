@@ -61,6 +61,7 @@ const Cart = () => {
       if (book) {
         count++;
         break;
+      
       }
     }
     if (count > 0) {
@@ -96,7 +97,7 @@ const Cart = () => {
         </div>
       )
     }
-
+// console.log(books)
 
   };
   return (

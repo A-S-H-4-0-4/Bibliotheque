@@ -130,7 +130,7 @@ export const Header = () => {
     return (
       <small
         key={index}
-        key={index}
+        // key={index}
         onClick={onBookClick}
 
       >

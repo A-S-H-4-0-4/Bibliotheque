@@ -13,7 +13,7 @@
  .box{
 
    height: 500px;
-   width: 400px;
+   width: 350px;
    background-color: rgb(54, 54, 54);
    border:1px solid rgb(0, 0, 0);
    display: flex;
@@ -23,28 +23,43 @@
  }
 
 .heading{
-  display: flex;
-  justify-content: center;
+  height: 12%;
   width: 90%;
-  border-bottom: 1px dotted rgb(0, 0, 0);
+  font-size: 24px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 3px dotted rgb(0, 0, 0);
 }
 
  .date{
-   margin-right: 40px;
+   margin-right: 90px;
  }
 
  .date span{
-   font-weight: bold;
+   color: aliceblue;
+   /* font-weight: bold; */
  }
 
+ .time{
+  margin-right: 160px;
+}
+
+.time span{
+  color: aliceblue;
+  /* font-weight: bold; */
+}
 
 .place span{
-  font-weight: bold;
+  color: aliceblue;
+
 }
 
 
 .message span{
-  font-weight: bold;
+  color: aliceblue;
+ 
 }
 
 
